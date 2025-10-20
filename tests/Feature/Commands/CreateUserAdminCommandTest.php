@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Commands;
 
-use App\Repositories\UserRepositoryInterface;
+use App\Interfaces\Repositories\UserRepositoryInterface;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Validator;
 use Mockery;
