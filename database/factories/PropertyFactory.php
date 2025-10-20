@@ -14,7 +14,7 @@ class PropertyFactory extends Factory
     public function definition(): array
     {
         $types = array_column(PropertiesTypesEnum::cases(), 'value');
-        $user = User::factory();
+        $user = User::factory(User::class)->make();
 
         return [
             'title' => $this->faker->sentence(3),
