@@ -16,28 +16,37 @@ permissions:
 jobs:
   quality:
     runs-on: ubuntu-latest
+
     steps:
+      # Checkout do repositório
       - uses: actions/checkout@v4
 
+      # Setup PHP
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.4'
+          extensions: mbstring, intl, bcmath
 
+      # Instala dependências
       - name: Install Dependencies
         run: |
           composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
           npm install
 
+      # Laravel Pint
       - name: Run Pint
         run: vendor/bin/pint
 
+      # Frontend Formatting
       - name: Format Frontend
         run: npm run format
 
+      # Frontend Lint
       - name: Lint Frontend
         run: npm run lint
 
+      # Commit automático (opcional)
       # - name: Commit Changes
       #   uses: stefanzweifel/git-auto-commit-action@v5
       #   with:
