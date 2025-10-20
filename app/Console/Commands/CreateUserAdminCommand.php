@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Http\Requests\CreateAdminRequest;
-use App\Repositories\UserRepositoryInterface;
+use App\Interfaces\Repositories\UserRepositoryInterface;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Validator;
 
