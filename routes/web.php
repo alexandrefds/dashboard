@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Property\CreatePropertyController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -13,3 +14,7 @@ Route::get('dashboard', function () {
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
+
+Route::prefix('property')->group(function () {
+    Route::post('/', CreatePropertyController::class)->name('create.property');
+});
